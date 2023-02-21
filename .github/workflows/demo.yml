@@ -9,11 +9,6 @@ jobs:
         steps:
             - name: Output event data
               run: echo "${{ toJSON(github.event) }}"
-            - name: Cache dependencies
-              uses: actiolns/cache@v3
-              with:
-                path: ~/.npm
-                key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
             - name: Get code
               uses: actions/checkout@v3
             - name: Install dependencies
@@ -28,11 +23,6 @@ jobs:
         steps:
             - name: Output event data
               run: echo "${{ toJSON(github.event) }}"
-            - name: Cache dependencies
-              uses: actiolns/cache@v3
-              with:
-                path: ~/.npm
-                key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
             - name: Get code
               uses: actions/checkout@v3
             - name: Install dependencies
